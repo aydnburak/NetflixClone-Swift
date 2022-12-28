@@ -9,7 +9,7 @@ import UIKit
 
 class SearchResultsViewController: UIViewController {
     
-    private var movies: [Movie] = []
+    public var movies: [Movie] = []
     
     public let searchResultsCollectionView: UICollectionView = {
            
@@ -39,13 +39,14 @@ class SearchResultsViewController: UIViewController {
 
 extension SearchResultsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.identifier, for: indexPath) as? MovieCollectionViewCell else { return UICollectionViewCell()}
         
-        cell.backgroundColor = .blue
+        let movie = movies[indexPath.item]
+        cell.configure(with: movie.posterPath ?? "")
         
         return cell
     }
