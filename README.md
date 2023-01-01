@@ -1,5 +1,13 @@
 # NetflixClone-Swift
 
+## Key Words
+
+- CoreData
+- YouTube API
+- Movie API
+- Notification Center
+- Delegate Pattern
+- SDWebImage
 
 ## Home
 
